@@ -2,7 +2,7 @@ const { Client } = require('pulsar-client');
 
 async function consumeMessages() {
     const client = new Client({
-        serviceUrl: 'pulsar://localhost:6650',
+        serviceUrl: process.env.serviceUrl,
     });
 
     const consumer = await client.subscribe({
