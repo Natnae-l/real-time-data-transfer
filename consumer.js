@@ -6,7 +6,7 @@ async function consumeMessages() {
     });
 
     const consumer = await client.subscribe({
-        topic: 'persistent://Ethiopia/BPO/payment',
+        topic: 'persistent://Ethiopia/BPO/job',
         subscriptionType: 'key_shared',
         subscription:'name',
     })
@@ -16,6 +16,7 @@ async function consumeMessages() {
     while (true) {
         try {
             const message = await consumer.receive();
+            console.log(JSON.parse(message.getProperties().key));
                 console.log(`Received message: ${message.getData()}`);
                 await consumer.acknowledge(message);            
         } catch (error) {
