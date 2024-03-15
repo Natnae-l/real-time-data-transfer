@@ -8,7 +8,7 @@ const createProducer = async (namespace, client, topic) => {
         })
 }
 
-module.exports = createTopics
+module.exports = {createProducer, namespaces}
 
 
      
